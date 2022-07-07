@@ -11,8 +11,8 @@ import com.qa.ims.utils.Utils;
  *
  */
 public enum Action {
-	CREATE("Save a new entity into the database"), READ("To read an entity from the database"),
-	UPDATE("Change an entity already in the database"), DELETE("To remove an entity from the database"),
+	CREATE("Save a new entity into the database"), READ("Read an entity from the database"),
+	UPDATE("Change an entity already in the database"), DELETE("Remove an entity from the database"),
 	RETURN("Return to domain selection");
 
 	public static final Logger LOGGER = LogManager.getLogger();
