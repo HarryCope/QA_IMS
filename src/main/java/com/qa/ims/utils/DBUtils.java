@@ -17,22 +17,25 @@ public class DBUtils {
 
 	private static final Logger LOGGER = LogManager.getLogger();
 
-	private final String dbUrl;
+	private static String dbUrl;
 
-	private final String dbUser;
+	private static String dbUser;
 
-	private final String dbPassword;
+	private static String dbPassword;
 
-	private DBUtils(String properties) {
+	private static String dbBaseUrl;
+
+	DBUtils(String properties) {
 		Properties dbProps = new Properties();
 		try (InputStream fis = ClassLoader.getSystemResourceAsStream(properties)) {
 			dbProps.load(fis);
 		} catch (Exception e) {
 			LOGGER.error(e);
 		}
-		this.dbUrl = dbProps.getProperty("db.url", "");
-		this.dbUser = dbProps.getProperty("db.user", "");
-		this.dbPassword = dbProps.getProperty("db.password", "");
+		DBUtils.dbUrl = dbProps.getProperty("db.url", "");
+		DBUtils.dbUser = dbProps.getProperty("db.user", "");
+		DBUtils.dbPassword = dbProps.getProperty("db.password", "");
+		DBUtils.dbBaseUrl = dbProps.getProperty("db.base_url", "");
 	}
 
 	public DBUtils() {
@@ -47,6 +50,22 @@ public class DBUtils {
 		}
 
 		return modified;
+	}
+
+	public static String getDbUrl() {
+		return dbUrl;
+	}
+
+	public static String getBaseDbUrl() {
+		return dbBaseUrl;
+	}
+
+	public static String getDbUser() {
+		return dbUser;
+	}
+
+	public static String getDbPassword() {
+		return dbPassword;
 	}
 
 	public int executeSQLFile(String file) {
