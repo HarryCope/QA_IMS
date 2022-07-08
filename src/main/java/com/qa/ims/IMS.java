@@ -1,5 +1,10 @@
 package com.qa.ims;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,6 +30,19 @@ public class IMS {
 	}
 
 	public void imsSystem() {
+
+		try {
+			Connection con = DriverManager.getConnection(DBUtils.getBaseDbUrl(), DBUtils.getDbUser(),
+					DBUtils.getDbPassword());
+			Statement state = con.createStatement();
+			state.execute("CREATE DATABASE IF NOT EXISTS `ims`");
+
+		} catch (SQLException e) {
+			LOGGER.error(e);
+			System.out.println(DBUtils.getDbUrl());
+			System.out.println(e.getStackTrace());
+		}
+
 		LOGGER.info("Welcome to the Inventory Management System!");
 		DBUtils.connect();
 
@@ -59,7 +77,7 @@ public class IMS {
 				break;
 			}
 
-			LOGGER.info(() ->"What would you like to do with " + domain.name().toLowerCase() + ":");
+			LOGGER.info(() -> "What would you like to do with " + domain.name().toLowerCase() + ":");
 
 			Action.printActions();
 			Action action = Action.getAction(utils);
