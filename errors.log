@@ -1,0 +1,41 @@
+20220711 15:22:38 INFO  [main] ims.IMS IMS.java90 - Welcome to the Inventory Management System!
+20220711 15:22:38 INFO  [main] ims.IMS IMS.java95 - Which entity would you like to use?
+20220711 15:22:38 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
+20220711 15:22:38 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
+20220711 15:22:38 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
+20220711 15:22:38 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
+20220711 15:22:40 INFO  [main] ims.IMS IMS.java125 - What would you like to do with item:
+20220711 15:22:40 INFO  [main] controller.Action Action.java38 - CREATE: Save a new entity into the database
+20220711 15:22:40 INFO  [main] controller.Action Action.java38 - READ: Read an entity from the database
+20220711 15:22:40 INFO  [main] controller.Action Action.java38 - UPDATE: Change an entity already in the database
+20220711 15:22:40 INFO  [main] controller.Action Action.java38 - DELETE: Remove an entity from the database
+20220711 15:22:40 INFO  [main] controller.Action Action.java38 - RETURN: Return to domain selection
+20220711 15:22:44 INFO  [main] controller.ItemController ItemController.java32 - item id:1 item name:null Price: £16
+20220711 15:22:44 INFO  [main] ims.IMS IMS.java125 - What would you like to do with item:
+20220711 15:22:44 INFO  [main] controller.Action Action.java38 - CREATE: Save a new entity into the database
+20220711 15:22:44 INFO  [main] controller.Action Action.java38 - READ: Read an entity from the database
+20220711 15:22:44 INFO  [main] controller.Action Action.java38 - UPDATE: Change an entity already in the database
+20220711 15:22:44 INFO  [main] controller.Action Action.java38 - DELETE: Remove an entity from the database
+20220711 15:22:44 INFO  [main] controller.Action Action.java38 - RETURN: Return to domain selection
+20220711 15:22:56 INFO  [main] controller.ItemController ItemController.java39 - Please enter the item name
+20220711 15:23:04 INFO  [main] controller.ItemController ItemController.java41 - Please enter the price
+20220711 15:23:07 INFO  [main] controller.ItemController ItemController.java44 - item created
+20220711 15:23:07 INFO  [main] ims.IMS IMS.java125 - What would you like to do with item:
+20220711 15:23:07 INFO  [main] controller.Action Action.java38 - CREATE: Save a new entity into the database
+20220711 15:23:07 INFO  [main] controller.Action Action.java38 - READ: Read an entity from the database
+20220711 15:23:07 INFO  [main] controller.Action Action.java38 - UPDATE: Change an entity already in the database
+20220711 15:23:07 INFO  [main] controller.Action Action.java38 - DELETE: Remove an entity from the database
+20220711 15:23:07 INFO  [main] controller.Action Action.java38 - RETURN: Return to domain selection
+20220711 15:23:10 INFO  [main] controller.ItemController ItemController.java63 - Please enter the id of the item you would like to delete
+20220711 15:23:12 INFO  [main] ims.IMS IMS.java125 - What would you like to do with item:
+20220711 15:23:12 INFO  [main] controller.Action Action.java38 - CREATE: Save a new entity into the database
+20220711 15:23:12 INFO  [main] controller.Action Action.java38 - READ: Read an entity from the database
+20220711 15:23:12 INFO  [main] controller.Action Action.java38 - UPDATE: Change an entity already in the database
+20220711 15:23:12 INFO  [main] controller.Action Action.java38 - DELETE: Remove an entity from the database
+20220711 15:23:12 INFO  [main] controller.Action Action.java38 - RETURN: Return to domain selection
+20220711 15:23:17 INFO  [main] ims.IMS IMS.java95 - Which entity would you like to use?
+20220711 15:23:17 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
+20220711 15:23:17 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
+20220711 15:23:17 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
+20220711 15:23:17 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
+20220711 15:23:19 INFO  [main] ims.Runner Runner.java17 - SO LONG!
