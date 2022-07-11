@@ -43,6 +43,19 @@ public class IMS {
 			System.out.println(e.getStackTrace());
 		}
 
+		try {
+			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
+					DBUtils.getDbPassword());
+			Statement state = con.createStatement();
+			state.execute("CREATE TABLE IF NOT EXISTS `customers`(" + "first_name varchar(30) not null, "
+					+ "surname varchar(30) not null, " + "id int auto_increment not null)");
+
+		} catch (SQLException e) {
+			LOGGER.error(e);
+			System.out.println(DBUtils.getDbUrl());
+			System.out.println(e.getStackTrace());
+		}
+
 		LOGGER.info("Welcome to the Inventory Management System!");
 		DBUtils.connect();
 
