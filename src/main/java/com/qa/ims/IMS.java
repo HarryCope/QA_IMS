@@ -12,8 +12,10 @@ import com.qa.ims.controller.Action;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
 import com.qa.ims.controller.ItemController;
+import com.qa.ims.controller.OrderController;
 import com.qa.ims.persistence.dao.CustomerDAO;
 import com.qa.ims.persistence.dao.ItemDAO;
+import com.qa.ims.persistence.dao.OrderDAO;
 import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.utils.DBUtils;
 import com.qa.ims.utils.Utils;
@@ -24,6 +26,7 @@ public class IMS {
 
 	private final CustomerController customers;
 	private final ItemController items;
+	private final OrderController orders;
 	private final Utils utils;
 
 	public IMS() {
@@ -33,6 +36,9 @@ public class IMS {
 
 		final ItemDAO iteDAO = new ItemDAO();
 		this.items = new ItemController(iteDAO, utils);
+
+		final OrderDAO ordDAO = new OrderDAO();
+		this.orders = new OrderController(ordDAO, utils);
 	}
 
 	public void imsSystem() {
@@ -66,7 +72,8 @@ public class IMS {
 					DBUtils.getDbPassword());
 			Statement state = con.createStatement();
 			state.execute("CREATE TABLE IF NOT EXISTS `items`(" + "item_name varchar(50) not null, "
-					+ "price int not null, " + "item_id int auto_increment not null, " + "primary key (item_id))");
+					+ "price decimal(6,2) not null, " + "item_id int auto_increment not null, "
+					+ "primary key (item_id))");
 
 		} catch (SQLException e) {
 			LOGGER.error(e);
@@ -115,6 +122,7 @@ public class IMS {
 				active = this.items;
 				break;
 			case ORDER:
+				active = this.orders;
 				break;
 			case STOP:
 				return;

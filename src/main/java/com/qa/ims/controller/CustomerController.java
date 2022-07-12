@@ -22,9 +22,6 @@ public class CustomerController implements CrudController<Customer> {
 		this.utils = utils;
 	}
 
-	/**
-	 * Reads all customers to the logger
-	 */
 	@Override
 	public List<Customer> readAll() {
 		List<Customer> customers = customerDAO.readAll();
