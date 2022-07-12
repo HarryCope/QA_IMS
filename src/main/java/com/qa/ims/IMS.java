@@ -11,7 +11,9 @@ import org.apache.logging.log4j.Logger;
 import com.qa.ims.controller.Action;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
+import com.qa.ims.controller.ItemController;
 import com.qa.ims.persistence.dao.CustomerDAO;
+import com.qa.ims.persistence.dao.ItemDAO;
 import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.utils.DBUtils;
 import com.qa.ims.utils.Utils;
@@ -21,12 +23,16 @@ public class IMS {
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	private final CustomerController customers;
+	private final ItemController items;
 	private final Utils utils;
 
 	public IMS() {
 		this.utils = new Utils();
 		final CustomerDAO custDAO = new CustomerDAO();
 		this.customers = new CustomerController(custDAO, utils);
+
+		final ItemDAO iteDAO = new ItemDAO();
+		this.items = new ItemController(iteDAO, utils);
 	}
 
 	public void imsSystem() {
@@ -47,12 +53,37 @@ public class IMS {
 			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
 					DBUtils.getDbPassword());
 			Statement state = con.createStatement();
-			state.execute("CREATE TABLE IF NOT EXISTS `customers` (" + "first_name varchar(30) not null, "
+			state.execute("CREATE TABLE IF NOT EXISTS `customers`(" + "first_name varchar(30) not null, "
 					+ "surname varchar(30) not null, " + "id int auto_increment not null, " + "primary key (id))");
 
 		} catch (SQLException e) {
 			LOGGER.error(e);
-			System.out.println(DBUtils.getDbUrl());
+			System.out.println(e.getStackTrace());
+		}
+
+		try {
+			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
+					DBUtils.getDbPassword());
+			Statement state = con.createStatement();
+			state.execute("CREATE TABLE IF NOT EXISTS `items`(" + "item_name varchar(50) not null, "
+					+ "price int not null, " + "item_id int auto_increment not null, " + "primary key (item_id))");
+
+		} catch (SQLException e) {
+			LOGGER.error(e);
+			System.out.println(e.getStackTrace());
+		}
+
+		try {
+			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
+					DBUtils.getDbPassword());
+			Statement state = con.createStatement();
+			state.execute("CREATE TABLE IF NOT EXISTS `orders`(" + "order_id int auto_increment not null, "
+					+ "id int not null, " + "item_id int not null, " + "primary key (order_id), "
+					+ "foreign key (id) references customers(id), "
+					+ "foreign key (item_id) references items(item_id))");
+
+		} catch (SQLException e) {
+			LOGGER.error(e);
 			System.out.println(e.getStackTrace());
 		}
 
@@ -81,6 +112,7 @@ public class IMS {
 				active = this.customers;
 				break;
 			case ITEM:
+				active = this.items;
 				break;
 			case ORDER:
 				break;
