@@ -1,11 +1,11 @@
-Coverage: 34%
+Coverage: 60.1%
 # Project Title
 
-One Paragraph of project description goes here
+This project connects to a database allowing the input of customers, items and the orders combining both customers and their orders. It connects to a MySQL database that it will create itself calles "ims".
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+In order to connect to your data base you will need to edit the db.properties file. Change the base URL to match that of your SQl server whether local or otherwise and for the regular url make sure to add "/ims" to the end in order to connect to this database specifically. The username and password need to match that of your detatils for MySQL.
 
 ### Prerequisites
 
@@ -75,12 +75,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
-
-## License
-
-This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
-
-*For help in [Choosing a license](https://choosealicense.com/)*
+* **Harry Cope** - *Building off of the original program*
 
 ## Acknowledgments
 
