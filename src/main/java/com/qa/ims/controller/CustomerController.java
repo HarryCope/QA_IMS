@@ -42,9 +42,6 @@ public class CustomerController implements CrudController<Customer> {
 		return customer;
 	}
 
-	/**
-	 * Updates an existing customer by taking in user input
-	 */
 	@Override
 	public Customer update() {
 		LOGGER.info("Please enter the id of the customer you would like to update");

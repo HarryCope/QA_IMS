@@ -11,7 +11,7 @@ import com.qa.ims.utils.Utils;
  *
  */
 public enum Action {
-	CREATE("Save a new entity into the database"), READ("Read an entity from the database"),
+	CREATE("Save a new entity into the database"), READALL("Read all entities from the database"),
 	UPDATE("Change an entity already in the database"), DELETE("Remove an entity from the database"),
 	RETURN("Return to domain selection");
 

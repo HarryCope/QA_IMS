@@ -37,7 +37,6 @@ public class OrderDAO implements Dao<Order> {
 			}
 			return orders;
 		} catch (SQLException e) {
-			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
 		return new ArrayList<>();
@@ -50,7 +49,6 @@ public class OrderDAO implements Dao<Order> {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
-			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
 		return null;
@@ -66,7 +64,6 @@ public class OrderDAO implements Dao<Order> {
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
-			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
 		return null;
@@ -76,16 +73,13 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public Order read(Long orderId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("SELECT * " + "FROM (orders "
-						+ "INNER JOIN customers ON (orders.id=customer.first_name)) "
-						+ "LEFT OUTER JOIN items ON (item.price=order.item_id) " + "WHERE order.order_id = ? ");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM items WHERE order_id = ?");) {
 			statement.setLong(1, orderId);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
 				return modelFromResultSet(resultSet);
 			}
 		} catch (Exception e) {
-			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
 		return null;
@@ -102,7 +96,6 @@ public class OrderDAO implements Dao<Order> {
 			statement.executeUpdate();
 			return read(order.getOrderId());
 		} catch (Exception e) {
-			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
 		return null;
@@ -115,7 +108,6 @@ public class OrderDAO implements Dao<Order> {
 			statement.setLong(1, orderId);
 			return statement.executeUpdate();
 		} catch (Exception e) {
-			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
 		return 0;
