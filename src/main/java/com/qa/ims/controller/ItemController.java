@@ -22,9 +22,6 @@ public class ItemController implements CrudController<Item> {
 		this.utils = utils;
 	}
 
-	/**
-	 * Reads all customers to the logger
-	 */
 	@Override
 	public List<Item> readAll() {
 		List<Item> items = itemDAO.readAll();
@@ -41,7 +38,7 @@ public class ItemController implements CrudController<Item> {
 		LOGGER.info("Please enter the price");
 		Long price = utils.getLong();
 		Item item = itemDAO.create(new Item(itemName, price));
-		LOGGER.info("item created");
+		LOGGER.info("Item created");
 		return item;
 	}
 
@@ -53,8 +50,8 @@ public class ItemController implements CrudController<Item> {
 		String itemName = utils.getString();
 		LOGGER.info("Please enter a new price");
 		Long price = utils.getLong();
-		Item item = itemDAO.update(new Item(itemId, itemName, price));
-		LOGGER.info("Customer Updated");
+		Item item = itemDAO.update(new Item(itemName, price, itemId));
+		LOGGER.info("Item Updated");
 		return item;
 	}
 

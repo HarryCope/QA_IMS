@@ -22,9 +22,6 @@ public class CustomerController implements CrudController<Customer> {
 		this.utils = utils;
 	}
 
-	/**
-	 * Reads all customers to the logger
-	 */
 	@Override
 	public List<Customer> readAll() {
 		List<Customer> customers = customerDAO.readAll();
@@ -45,9 +42,6 @@ public class CustomerController implements CrudController<Customer> {
 		return customer;
 	}
 
-	/**
-	 * Updates an existing customer by taking in user input
-	 */
 	@Override
 	public Customer update() {
 		LOGGER.info("Please enter the id of the customer you would like to update");

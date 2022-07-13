@@ -31,10 +31,10 @@ public class CustomerControllerTest {
 
 	@Test
 	public void testCreate() {
-		final String F_NAME = "barry", L_NAME = "scott";
-		final Customer created = new Customer(F_NAME, L_NAME);
+		final String firstName = "barry", surname = "scott";
+		final Customer created = new Customer(firstName, surname);
 
-		Mockito.when(utils.getString()).thenReturn(F_NAME, L_NAME);
+		Mockito.when(utils.getString()).thenReturn(firstName, surname);
 		Mockito.when(dao.create(created)).thenReturn(created);
 
 		assertEquals(created, controller.create());
