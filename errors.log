@@ -1,41 +1,110 @@
-20220711 15:22:38 INFO  [main] ims.IMS IMS.java90 - Welcome to the Inventory Management System!
-20220711 15:22:38 INFO  [main] ims.IMS IMS.java95 - Which entity would you like to use?
-20220711 15:22:38 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
-20220711 15:22:38 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
-20220711 15:22:38 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
-20220711 15:22:38 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
-20220711 15:22:40 INFO  [main] ims.IMS IMS.java125 - What would you like to do with item:
-20220711 15:22:40 INFO  [main] controller.Action Action.java38 - CREATE: Save a new entity into the database
-20220711 15:22:40 INFO  [main] controller.Action Action.java38 - READ: Read an entity from the database
-20220711 15:22:40 INFO  [main] controller.Action Action.java38 - UPDATE: Change an entity already in the database
-20220711 15:22:40 INFO  [main] controller.Action Action.java38 - DELETE: Remove an entity from the database
-20220711 15:22:40 INFO  [main] controller.Action Action.java38 - RETURN: Return to domain selection
-20220711 15:22:44 INFO  [main] controller.ItemController ItemController.java32 - item id:1 item name:null Price: £16
-20220711 15:22:44 INFO  [main] ims.IMS IMS.java125 - What would you like to do with item:
-20220711 15:22:44 INFO  [main] controller.Action Action.java38 - CREATE: Save a new entity into the database
-20220711 15:22:44 INFO  [main] controller.Action Action.java38 - READ: Read an entity from the database
-20220711 15:22:44 INFO  [main] controller.Action Action.java38 - UPDATE: Change an entity already in the database
-20220711 15:22:44 INFO  [main] controller.Action Action.java38 - DELETE: Remove an entity from the database
-20220711 15:22:44 INFO  [main] controller.Action Action.java38 - RETURN: Return to domain selection
-20220711 15:22:56 INFO  [main] controller.ItemController ItemController.java39 - Please enter the item name
-20220711 15:23:04 INFO  [main] controller.ItemController ItemController.java41 - Please enter the price
-20220711 15:23:07 INFO  [main] controller.ItemController ItemController.java44 - item created
-20220711 15:23:07 INFO  [main] ims.IMS IMS.java125 - What would you like to do with item:
-20220711 15:23:07 INFO  [main] controller.Action Action.java38 - CREATE: Save a new entity into the database
-20220711 15:23:07 INFO  [main] controller.Action Action.java38 - READ: Read an entity from the database
-20220711 15:23:07 INFO  [main] controller.Action Action.java38 - UPDATE: Change an entity already in the database
-20220711 15:23:07 INFO  [main] controller.Action Action.java38 - DELETE: Remove an entity from the database
-20220711 15:23:07 INFO  [main] controller.Action Action.java38 - RETURN: Return to domain selection
-20220711 15:23:10 INFO  [main] controller.ItemController ItemController.java63 - Please enter the id of the item you would like to delete
-20220711 15:23:12 INFO  [main] ims.IMS IMS.java125 - What would you like to do with item:
-20220711 15:23:12 INFO  [main] controller.Action Action.java38 - CREATE: Save a new entity into the database
-20220711 15:23:12 INFO  [main] controller.Action Action.java38 - READ: Read an entity from the database
-20220711 15:23:12 INFO  [main] controller.Action Action.java38 - UPDATE: Change an entity already in the database
-20220711 15:23:12 INFO  [main] controller.Action Action.java38 - DELETE: Remove an entity from the database
-20220711 15:23:12 INFO  [main] controller.Action Action.java38 - RETURN: Return to domain selection
-20220711 15:23:17 INFO  [main] ims.IMS IMS.java95 - Which entity would you like to use?
-20220711 15:23:17 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
-20220711 15:23:17 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
-20220711 15:23:17 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
-20220711 15:23:17 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
-20220711 15:23:19 INFO  [main] ims.Runner Runner.java17 - SO LONG!
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_8B7: PUBLIC.ORDERS FOREIGN KEY(ITEM_ID) REFERENCES PUBLIC.ITEMS(ITEM_ID) (2)"; SQL statement:
+INSERT INTO `orders` (`id`, `item_id`) VALUES (2, 2) [23506-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_8B7: PUBLIC.ORDERS FOREIGN KEY(ITEM_ID) REFERENCES PUBLIC.ITEMS(ITEM_ID) (3)"; SQL statement:
+INSERT INTO `orders` (`id`, `item_id`) VALUES (1, 3) [23506-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_8B7: PUBLIC.ORDERS FOREIGN KEY(ITEM_ID) REFERENCES PUBLIC.ITEMS(ITEM_ID) (4)"; SQL statement:
+INSERT INTO `orders` (`id`, `item_id`) VALUES (2, 4) [23506-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_8B7: PUBLIC.ORDERS FOREIGN KEY(ITEM_ID) REFERENCES PUBLIC.ITEMS(ITEM_ID) (3)"; SQL statement:
+INSERT INTO `orders` (`id`, `item_id`) VALUES (1, 3) [23506-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_8B7: PUBLIC.ORDERS FOREIGN KEY(ITEM_ID) REFERENCES PUBLIC.ITEMS(ITEM_ID) (4)"; SQL statement:
+INSERT INTO `orders` (`id`, `item_id`) VALUES (2, 4) [23506-200]
+20220713 16:35:44 ERROR [main] dao.OrderDAO OrderDAO.java83 - Column "ORDER_ID" not found; SQL statement:
+SELECT * FROM items WHERE order_id = ? [42122-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_8B7: PUBLIC.ORDERS FOREIGN KEY(ITEM_ID) REFERENCES PUBLIC.ITEMS(ITEM_ID) (4)"; SQL statement:
+INSERT INTO `orders` (`id`, `item_id`) VALUES (2, 4) [23506-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:44 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:44 ERROR [main] dao.OrderDAO OrderDAO.java83 - Column "ORDER_ID" not found; SQL statement:
+SELECT * FROM items WHERE order_id = ? [42122-200]
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java29 - order id:45 customer id:1 item id: 1
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java36 - Please enter the customer id
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java38 - Please enter the item id
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java41 - Order created
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java60 - Please enter the id of the order you would like to delete
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java47 - Please enter the id of the order you would like to update
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java49 - Please enter a new customer id
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java51 - Please enter a item id
+20220713 16:35:46 INFO  [main] controller.OrderController OrderController.java54 - Order Updated
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] dao.CustomerDAO CustomerDAO.java137 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_8B: PUBLIC.ORDERS FOREIGN KEY(ID) REFERENCES PUBLIC.CUSTOMERS(ID) (1)"; SQL statement:
+DELETE FROM customers WHERE id = ? [23503-200]
+20220713 16:35:46 ERROR [main] dao.CustomerDAO CustomerDAO.java138 - Referential integrity constraint violation: "CONSTRAINT_8B: PUBLIC.ORDERS FOREIGN KEY(ID) REFERENCES PUBLIC.CUSTOMERS(ID) (1)"; SQL statement:
+DELETE FROM customers WHERE id = ? [23503-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 DEBUG [main] dao.ItemDAO ItemDAO.java120 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_8B7: PUBLIC.ORDERS FOREIGN KEY(ITEM_ID) REFERENCES PUBLIC.ITEMS(ITEM_ID) (1)"; SQL statement:
+DELETE FROM items WHERE item_id = ? [23503-200]
+20220713 16:35:46 ERROR [main] dao.ItemDAO ItemDAO.java121 - Referential integrity constraint violation: "CONSTRAINT_8B7: PUBLIC.ORDERS FOREIGN KEY(ITEM_ID) REFERENCES PUBLIC.ITEMS(ITEM_ID) (1)"; SQL statement:
+DELETE FROM items WHERE item_id = ? [23503-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUSTOMERS" because "CONSTRAINT_8B" depends on it; SQL statement:
+DROP TABLE IF EXISTS `customers` [90107-200]
+20220713 16:35:46 DEBUG [main] utils.DBUtils DBUtils.java81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ITEMS" because "CONSTRAINT_8B7" depends on it; SQL statement:
+DROP TABLE IF EXISTS `items` [90107-200]
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java29 - id:1 first name:jordan surname:harrison
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java36 - Please enter a first name
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java38 - Please enter a surname
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java41 - Customer created
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java65 - Please enter the id of the customer you would like to delete
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java47 - Please enter the id of the customer you would like to update
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java49 - Please enter a first name
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java51 - Please enter a surname
+20220713 16:35:46 INFO  [main] controller.CustomerController CustomerController.java54 - Customer Updated
