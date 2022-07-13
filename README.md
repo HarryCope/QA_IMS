@@ -75,7 +75,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
-* **Harry Cope** - *Building off of the original program*
+* **Harry Cope** - *Building off of the original program* - https://github.com/HarryCope
 
 ## Acknowledgments
 
