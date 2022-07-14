@@ -1,4 +1,4 @@
-Coverage: 60.1%
+Coverage: 64.7%
 # Project Title
 
 This project connects to a database allowing the input of customers, items and the orders combining both customers and their orders. It connects to a MySQL database that it will create itself calles "ims".
@@ -44,8 +44,3 @@ mvn package
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
 * **Harry Cope** - *Building off of the original program* - [Harry Cope](https://github.com/HarryCope)
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
