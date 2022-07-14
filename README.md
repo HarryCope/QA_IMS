@@ -38,9 +38,6 @@ mvn package
 
 * [Maven](https://maven.apache.org/) - Dependency Management
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
