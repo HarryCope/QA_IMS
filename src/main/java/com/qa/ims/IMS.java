@@ -1,10 +1,5 @@
 package com.qa.ims;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,55 +38,55 @@ public class IMS {
 
 	public void imsSystem() {
 
-		try {
-			Connection con = DriverManager.getConnection(DBUtils.getBaseDbUrl(), DBUtils.getDbUser(),
-					DBUtils.getDbPassword());
-			Statement state = con.createStatement();
-			state.execute("CREATE DATABASE IF NOT EXISTS `ims`");
-
-		} catch (SQLException e) {
-			LOGGER.error(e);
-			System.out.println(DBUtils.getDbUrl());
-			System.out.println(e.getStackTrace());
-		}
-
-		try {
-			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
-					DBUtils.getDbPassword());
-			Statement state = con.createStatement();
-			state.execute("CREATE TABLE IF NOT EXISTS `customers`(" + "first_name varchar(30) not null, "
-					+ "surname varchar(30) not null, " + "id int auto_increment not null, " + "primary key (id))");
-
-		} catch (SQLException e) {
-			LOGGER.error(e);
-			System.out.println(e.getStackTrace());
-		}
-
-		try {
-			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
-					DBUtils.getDbPassword());
-			Statement state = con.createStatement();
-			state.execute("CREATE TABLE IF NOT EXISTS `items`(" + "item_id int auto_increment not null,"
-					+ "item_name varchar(50) not null, " + "price decimal(6,2) not null, " + "primary key (item_id))");
-
-		} catch (SQLException e) {
-			LOGGER.error(e);
-			System.out.println(e.getStackTrace());
-		}
-
-		try {
-			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
-					DBUtils.getDbPassword());
-			Statement state = con.createStatement();
-			state.execute("CREATE TABLE IF NOT EXISTS `orders`(" + "order_id int auto_increment not null, "
-					+ "id int not null, " + "item_id int not null, " + "primary key (order_id), "
-					+ "foreign key (id) references customers(id), "
-					+ "foreign key (item_id) references items(item_id))");
-
-		} catch (SQLException e) {
-			LOGGER.error(e);
-			System.out.println(e.getStackTrace());
-		}
+//		try {
+//			Connection con = DriverManager.getConnection(DBUtils.getBaseDbUrl(), DBUtils.getDbUser(),
+//					DBUtils.getDbPassword());
+//			Statement state = con.createStatement();
+//			state.execute("CREATE DATABASE IF NOT EXISTS `ims`");
+//
+//		} catch (SQLException e) {
+//			LOGGER.error(e);
+//			System.out.println(DBUtils.getDbUrl());
+//			System.out.println(e.getStackTrace());
+//		}
+//
+//		try {
+//			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
+//					DBUtils.getDbPassword());
+//			Statement state = con.createStatement();
+//			state.execute("CREATE TABLE IF NOT EXISTS `customers`(" + "first_name varchar(30) not null, "
+//					+ "surname varchar(30) not null, " + "id int auto_increment not null, " + "primary key (id))");
+//
+//		} catch (SQLException e) {
+//			LOGGER.error(e);
+//			System.out.println(e.getStackTrace());
+//		}
+//
+//		try {
+//			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
+//					DBUtils.getDbPassword());
+//			Statement state = con.createStatement();
+//			state.execute("CREATE TABLE IF NOT EXISTS `items`(" + "item_id int auto_increment not null,"
+//					+ "item_name varchar(50) not null, " + "price decimal(6,2) not null, " + "primary key (item_id))");
+//
+//		} catch (SQLException e) {
+//			LOGGER.error(e);
+//			System.out.println(e.getStackTrace());
+//		}
+//
+//		try {
+//			Connection con = DriverManager.getConnection(DBUtils.getDbUrl(), DBUtils.getDbUser(),
+//					DBUtils.getDbPassword());
+//			Statement state = con.createStatement();
+//			state.execute("CREATE TABLE IF NOT EXISTS `orders`(" + "order_id int auto_increment not null, "
+//					+ "id int not null, " + "item_id int not null, " + "primary key (order_id), "
+//					+ "foreign key (id) references customers(id), "
+//					+ "foreign key (item_id) references items(item_id))");
+//
+//		} catch (SQLException e) {
+//			LOGGER.error(e);
+//			System.out.println(e.getStackTrace());
+//		}
 
 		LOGGER.info("Welcome to the Inventory Management System!");
 		DBUtils.connect();

@@ -73,7 +73,7 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public Order read(Long orderId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("SELECT * FROM items WHERE order_id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM orders WHERE order_id = ?");) {
 			statement.setLong(1, orderId);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
@@ -90,9 +90,9 @@ public class OrderDAO implements Dao<Order> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("UPDATE orders SET id = ?, item_id = ? WHERE order_id = ?");) {
-			statement.setLong(1, order.getOrderId());
-			statement.setLong(2, order.getId());
-			statement.setLong(3, order.getItemId());
+			statement.setLong(3, order.getOrderId());
+			statement.setLong(1, order.getId());
+			statement.setLong(2, order.getItemId());
 			statement.executeUpdate();
 			return read(order.getOrderId());
 		} catch (Exception e) {

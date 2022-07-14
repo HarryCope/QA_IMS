@@ -45,22 +45,21 @@ public class OrderControllerTest {
 	public void testCreate() {
 		final Long orderId = 3L, id = 1L, itemId = 2L;
 		final Order created = new Order(orderId, id, itemId);
-
-		Mockito.when(utils.getLong()).thenReturn(orderId, id, itemId);
-		Mockito.when(dao.create(created)).thenReturn(created);
+		final Order newOrder = new Order(id, itemId);
+		Mockito.when(utils.getLong()).thenReturn(id, itemId);
+		Mockito.when(dao.create(newOrder)).thenReturn(created);
 
 		assertEquals(created, controller.create());
 
-		Mockito.verify(utils, Mockito.times(3)).getLong();
-		Mockito.verify(dao, Mockito.times(1)).create(created);
+		Mockito.verify(utils, Mockito.times(2)).getLong();
+		Mockito.verify(dao, Mockito.times(1)).create(newOrder);
 	}
 
 	@Test
 	public void testUpdate() {
 		Order updated = new Order(1L, 2L, 3L);
 
-		Mockito.when(this.utils.getLong()).thenReturn(1L);
-		Mockito.when(this.utils.getLong()).thenReturn(updated.getId(), updated.getItemId());
+		Mockito.when(this.utils.getLong()).thenReturn(updated.getOrderId(), updated.getId(), updated.getItemId());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 
 		assertEquals(updated, this.controller.update());
