@@ -23,7 +23,7 @@ public class CustomerDAOTest {
 
 	@Test
 	public void testCreate() {
-		final Customer created = new Customer(31L, "chris", "perrins");
+		final Customer created = new Customer(3L, "chris", "perrins");
 		assertEquals(created, DAO.create(created));
 	}
 
@@ -33,19 +33,13 @@ public class CustomerDAOTest {
 		expected.clear();
 		expected.add(new Customer(1L, "jordan", "harrison"));
 		expected.add(new Customer(2L, "Harry", "Cope"));
-		expected.add(new Customer(3L, "Eve", "Magowan"));
-		expected.add(new Customer(4L, "jordan", "harrison"));
-		expected.add(new Customer(5L, "Harry", "Cope"));
-		expected.add(new Customer(6L, "Eve", "Magowan"));
-		expected.add(new Customer(7L, "jordan", "harrison"));
-		expected.add(new Customer(8L, "Harry", "Cope"));
-		expected.add(new Customer(9L, "Eve", "Magowan"));
+
 		assertEquals(expected, DAO.readAll());
 	}
 
 	@Test
 	public void testReadLatest() {
-		assertEquals(new Customer(3L, "Eve", "Magowan"), DAO.readLatest());
+		assertEquals(new Customer(2L, "Harry", "Cope"), DAO.readLatest());
 	}
 
 	@Test
