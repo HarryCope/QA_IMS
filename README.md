@@ -9,60 +9,30 @@ In order to connect to your data base you will need to edit the db.properties fi
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system. Break down into which tests and what they do
-
-### Unit Tests 
-
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
+You will need some kind of Java IDE Eclipse was used for this program and MySQL for the database control. Maven will also need to be intalled in order to package the file.
 
 ### Integration Tests 
 Explain what these tests test, why and how to run them
 
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+As of uploading this the tests have a coverage of 64.7% and the cover the following files:
+Customer.java
+Order.Java
+Item.java
+CustomerDAO.java
+OrderDAO.java
+ItemDAO.java
+CustomerController.java
+OrderController.java
+ItemController.java
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Open the command line in the file where this project is saved and run the following commands:
+
+```
+mvn clean
+mvn package
+```
 
 ## Built With
 
