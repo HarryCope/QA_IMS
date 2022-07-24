@@ -5,7 +5,7 @@ This project connects to a database allowing the input of customers, items and t
 
 ## Getting Started
 
-In order to connect to your data base you will need to edit the db.properties file. Change the base URL to match that of your SQl server whether local or otherwise and for the regular url make sure to add "/ims" to the end in order to connect to this database specifically. The username and password need to match that of your detatils for MySQL.
+In order to connect to your data base you will need to edit the db.properties file. Change the base URL to match that of your SQl server whether local or otherwise and for the regular url make sure to add "/ims" to the end in order to connect to this database specifically. The username and password need to match that of your detatils for MySQL. An oversight on my part that I would have chnged in the future would have been to change the customer ID variable name from just id to customerId to improve the projets readability, but just for your benefit if you see id refered to at any point it will always be the customer id.
 
 ### Prerequisites
 
@@ -33,6 +33,8 @@ Open the command line in the file where this project is saved and run the follow
 mvn clean
 mvn package
 ```
+When I tested packaging this file it flagged a whole series of errors that me and trainers could not resolve. I did however ask others to test my code on a different device and they assured me that it worked and packaged correctly.
+
 
 ## Built With
 
